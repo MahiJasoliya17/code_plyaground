@@ -23,7 +23,7 @@ register = template.Library()
 @register.filter
 def get_profile_pic(user):
     try:
-        return user.userprofile.profile_pic.url
+        return user.profile.profile_pic.url
     except:
         return '/media/profile_pics/default_user.png'  # fallback
 
