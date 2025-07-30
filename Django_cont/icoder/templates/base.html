@@ -63,12 +63,10 @@
         <ul class="navbar-nav mr-2">
           <li class="nav-item dropdown">
            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-
-                {% if user.userprofile.profile_pic %}{% csrf_token %}
-                  <img src="{{ user.userprofile.profile_pic.url }}" width="30" height="30" class="rounded-circle me-2" alt="Profile">
-                {% else %}
-                  <img src="media/profile_pics/default_user.png" width="30" height="30" class="rounded-circle me-2" alt="Default">
-                {% endif %}
+                    {% csrf_token %} 
+                <img src="{% if user.userprofile.profile_pic %}{{ user.userprofile.profile_pic.url }}{% else %}/media/profile_pics/default_user.png{% endif %}" 
+                 alt="Profile" width="30" height="30" class="rounded-circle me-2">
+                  {% endif %}
                  Welcome {{ user.username }}
                 </a>
             <ul class="dropdown-menu">
